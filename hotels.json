@@ -85,5 +85,92 @@
       "longitud": 14.492472
     },
     "url": "https://www.booking.com/hotel/mt/the-elise-apartments.es.html?aid=304142&label=gen173nr-10CAEoggI46AdIM1gEaEaIAQGYATO4ARfIAQzYAQPoAQH4AQGIAgGoAgG4ApzMms4GwAIB0gIkYzlkZGUwMmUtMjZhOS00YTQ3LTg2ZjItYWUwZmRjZjZhNmU52AIB4AIB&sid=48fc6532d3e41c3e0e4b7c6a84911c99&dest_id=11213927&dest_type=hotel&dist=0&group_adults=2&group_children=0&hapos=1&hpos=1&no_rooms=1&req_adults=2&req_children=0&room1=A%2CA&sb_price_type=total&sr_order=popularity&srepoch=1774626846&srpvid=e9826fcdec0f00eb&type=total&ucfs=1&"
+  },
+  {
+    "nombre": "1bed balluta",
+    "tipo": "Apartamento",
+    "descripcion": "Sofá",
+    "precio": 547,
+    "ubicacion": {
+      "latitud": 35.9115,
+      "longitud": 14.4905
+    },
+    "url": "https://www.booking.com/hotel/mt/1bed-apt-close-to-balluta-bay.es.html?label=gen173nr-10CAEoggI46AdIM1gEaEaIAQGYATO4ARfIAQzYAQPoAQH4AQGIAgGoAgG4ApzMms4GwAIB0gIkYzlkZGUwMmUtMjZhOS00YTQ3LTg2ZjItYWUwZmRjZjZhNmU52AIB4AIB&aid=304142&ucfs=1&arphpl=1&dest_id=14186782&dest_type=hotel&group_adults=2&req_adults=2&no_rooms=1&group_children=0&req_children=0&hpos=1&hapos=1&sr_order=popularity&srpvid=190c6fdc58b70105&srepoch=1774626875&from=searchresults"
+  },
+  {
+    "nombre": "silema Boutique Aparts",
+    "tipo": "Apartamento",
+    "descripcion": "1 Sofá",
+    "precio": 639,
+    "ubicacion": {
+      "latitud": 35.915639,
+      "longitud": 14.500556
+    }
+  },
+  {
+    "nombre": "Marea Central",
+    "tipo": "Apartamento",
+    "descripcion": "Camas",
+    "precio": 650,
+    "ubicacion": {
+      "latitud": 35.910583,
+      "longitud": 14.499167
+    },
+    "url": "https://booking.com/hotel/mt/marea-central-apartments.es.html?label=gen173nr-10CAEoggI46AdIM1gEaEaIAQGYATO4ARfIAQzYAQPoAQH4AQGIAgGoAgG4ApzMms4GwAIB0gIkYzlkZGUwMmUtMjZhOS00YTQ3LTg2ZjItYWUwZmRjZjZhNmU52AIB4AIB&aid=304142&ucfs=1&arphpl=1&dest_id=9978058&dest_type=hotel&group_adults=2&req_adults=2&no_rooms=1&group_children=0&req_children=0&hpos=1&hapos=1&sr_order=popularity&srpvid=7ed97138118f0019&srepoch=1774627574&from=searchresults"
+  },
+  {
+    "nombre": "Stay Charles",
+    "tipo": "Apartamento",
+    "descripcion": "Camas",
+    "precio": 607,
+    "ubicacion": {
+      "latitud": 35.912139,
+      "longitud": 14.502556
+    },
+    "url": "https://www.booking.com/hotel/mt/stay-charles-sliema-home-cozy-prime-spot-near-seafront.es.html"
+  },
+  {
+    "nombre": "Authentic Townhouse",
+    "tipo": "Apartamento",
+    "descripcion": "Camas",
+    "precio": 691,
+    "ubicacion": {
+      "latitud": 35.910778,
+      "longitud": 14.5045
+    },
+    "url": "https://www.booking.com/hotel/mt/authentic-townhouse-with-backyard-in-sliema-by-360-estates.es.html"
+  },
+  {
+    "nombre": "Easy Living",
+    "tipo": "Apartamento",
+    "descripcion": "Camas",
+    "precio": 620,
+    "ubicacion": {
+      "latitud": 35.913444,
+      "longitud": 14.501278
+    },
+    "url": "https://www.booking.com/hotel/mt/central-sliema-retreat-perfect-for-familes-amp-friends.es.html"
+  },
+  {
+    "nombre": "Emilio",
+    "tipo": "Apartamento",
+    "descripcion": "Sofa",
+    "precio": 632,
+    "ubicacion": {
+      "latitud": 35.909556,
+      "longitud": 14.498806
+    },
+    "url": "https://booking.com/hotel/mt/emilios-suites.es.html?label=gen173nr-10CAEoggI46AdIM1gEaEaIAQGYATO4ARfIAQzYAQPoAQH4AQGIAgGoAgG4ApzMms4GwAIB0gIkYzlkZGUwMmUtMjZhOS00YTQ3LTg2ZjItYWUwZmRjZjZhNmU52AIB4AIB&aid=304142"
+  },
+  {
+    "nombre": "Azure haven",
+    "tipo": "Apartamento",
+    "descripcion": "Camas",
+    "precio": 465,
+    "ubicacion": {
+      "latitud": 35.906889,
+      "longitud": 14.494806
+    },
+    "url": "https://booking.com/hotel/mt/bright-and-spacious-3-bedroom-gzira-apartment.es.html?aid=304142"
   }
 ]
