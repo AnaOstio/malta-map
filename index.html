@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alojamientos en Malta</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500&display=swap"
+    rel="stylesheet" />
+
+  <style>
+    :root {
+      --hotel-color: #c0392b;
+      --hotel-light: #f9eded;
+      --hotel-border: #e8b4b0;
+      --apart-color: #1a6b9a;
+      --apart-light: #eaf3fa;
+      --apart-border: #a3c9e2;
+      --bg: #f5f3ee;
+      --surface: #ffffff;
+      --text: #1c1a17;
+      --text-muted: #7a7469;
+      --shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+      --radius: 14px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    header {
+      padding: 28px 36px 20px;
+      background: var(--surface);
+      border-bottom: 1px solid #e8e4dc;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.7rem;
+    }
+
+    header h1 span {
+      color: var(--apart-color);
+    }
+
+    .filters {
+      padding: 14px 36px;
+      background: var(--surface);
+      border-bottom: 1px solid #e8e4dc;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      padding: 7px 18px;
+      border-radius: 30px;
+      border: 1.5px solid #ddd8ce;
+      cursor: pointer;
+    }
+
+    .filter-btn.active {
+      background: #000;
+      color: #fff;
+    }
+
+    .main {
+      display: grid;
+      grid-template-columns: 380px 1fr;
+      height: calc(100vh - 120px);
+    }
+
+    .sidebar {
+      overflow-y: auto;
+      padding: 20px;
+    }
+
+    .card {
+      background: #fff;
+      padding: 15px;
+      margin-bottom: 10px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    #map {
+      height: 100%;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Alojamientos en <span>Malta</span></h1>
+  </header>
+
+  <div class="filters">
+    <button class="filter-btn active" data-filter="all">Todos</button>
+    <button class="filter-btn" data-filter="Hotel">Hoteles</button>
+    <button class="filter-btn" data-filter="Apartamento">Apartamentos</button>
+    <button class="filter-btn" data-filter="price-asc">💰 Menor precio</button>
+    <button class="filter-btn" data-filter="price-desc">💎 Mayor precio</button>
+  </div>
+
+  <div class="main">
+    <div class="sidebar" id="sidebar"></div>
+    <div id="map"></div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+
+  <script>
+    let data = [];
+    let filteredData = [];
+
+    const map = L.map('map').setView([35.912, 14.498], 14);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap'
+    }).addTo(map);
+
+    let markers = [];
+    let cards = [];
+    let activeIndex = null;
+
+    function createIcon(tipo) {
+      const color = tipo === 'Hotel' ? '#c0392b' : '#1a6b9a';
+      return L.divIcon({
+        html: `<div style="background:${color};width:30px;height:30px;border-radius:50%"></div>`
+      });
+    }
+
+    function buildUI(list) {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.innerHTML = '';
+
+      markers.forEach(m => map.removeLayer(m));
+      markers = [];
+      cards = [];
+
+      list.forEach((item, idx) => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        let url = item.url ? item.url : null;
+
+        // normalizar URL
+        if (url && !url.startsWith('http')) {
+          url = 'https://' + url;
+        }
+
+        card.innerHTML = `
+          <div style="font-weight:600">${item.nombre}</div>
+          <div style="font-size:0.85rem;color:#666">${item.descripcion}</div>
+          <div style="margin-top:5px">${item.precio}€</div>
+
+          ${url
+            ? `<a href="${url}" target="_blank" style="font-size:0.8rem;color:#1a6b9a;text-decoration:none;">
+                  Ver alojamiento ↗
+                </a>`
+            : `<span style="font-size:0.75rem;color:#aaa;">Sin enlace</span>`
+          }
+        `;
+        card.onclick = () => selectItem(idx);
+        sidebar.appendChild(card);
+        cards.push(card);
+
+        const marker = L.marker(
+          [item.ubicacion.latitud, item.ubicacion.longitud],
+          { icon: createIcon(item.tipo) }
+        ).addTo(map);
+
+        if (url && !url.startsWith('http')) {
+          url = 'https://' + url;
+        }
+
+        marker.bindPopup(`
+          <b>${item.nombre}</b><br>
+          ${item.descripcion}<br>
+          ${item.precio}€<br>
+          ${url
+            ? `<a href="${url}" target="_blank">Ver alojamiento</a>`
+            : `<span style="color:#aaa">Sin enlace</span>`
+          }
+        `);
+        marker.on('click', () => selectItem(idx));
+
+        markers.push(marker);
+      });
+    }
+
+    function selectItem(idx) {
+      if (activeIndex !== null) {
+        cards[activeIndex].classList.remove('active');
+      }
+      activeIndex = idx;
+      cards[idx].classList.add('active');
+
+      const latlng = markers[idx].getLatLng();
+      map.flyTo(latlng, 15);
+      markers[idx].openPopup();
+    }
+
+    // FETCH JSON
+    async function loadData() {
+      try {
+        const res = await fetch('hotels.json');
+
+        if (!res.ok) throw new Error('Error cargando JSON');
+
+        data = await res.json();
+        filteredData = [...data];
+
+        buildUI(data);
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
+    // FILTERS
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const f = btn.dataset.filter;
+
+        let result = [...data];
+
+        if (f === 'Hotel' || f === 'Apartamento') {
+          result = data.filter(d => d.tipo === f);
+        } else if (f === 'price-asc') {
+          result.sort((a, b) => a.precio - b.precio);
+        } else if (f === 'price-desc') {
+          result.sort((a, b) => b.precio - a.precio);
+        }
+
+        filteredData = result;
+        buildUI(filteredData);
+      });
+    });
+
+    // INIT
+    loadData();
+  </script>
+
+</body>
+
+</html>

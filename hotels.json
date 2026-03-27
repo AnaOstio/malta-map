@@ -1,0 +1,89 @@
+[
+  {
+    "nombre": "Plaza Regency",
+    "tipo": "Hotel",
+    "descripcion": "4 camas",
+    "precio": 767,
+    "ubicacion": {
+      "latitud": 35.914611,
+      "longitud": 14.497306
+    },
+    "url": "https://booking.com/hotel/mt/plaza-plaza-regency-hotels.es.html?label=gen173nr-10CAEoggI46AdIM1gEaEaIAQGYATO4ARfIAQzYAQPoAQH4AQGIAgGoAgG4ApzMms4GwAIB0gIkYzlkZGUwMmUtMjZhOS00YTQ3LTg2ZjItYWUwZmRjZjZhNmU52AIB4AIB&aid=304142&ucfs=1&arphpl=1&dest_id=17548&dest_type=hotel&group_adults=2&req_adults=2&no_rooms=1&group_children=0&req_children=0&hpos=1&hapos=1&sr_order=popularity&srpvid=53966ed560130261&srepoch=1774626353&from=searchresults"
+  },
+  {
+    "nombre": "Travi Boutique",
+    "tipo": "Hotel",
+    "descripcion": "2 Habitaciones",
+    "precio": 721,
+    "ubicacion": {
+      "latitud": 35.914611,
+      "longitud": 14.492528
+    },
+    "url": "https://booking.com/hotel/mt/travi-boutique.es.html?label=gen173nr-10CAEoggI46AdIM1gEaEaIAQGYATO4ARfIAQzYAQPoAQH4AQGIAgGoAgG4ApzMms4GwAIB0gIkYzlkZGUwMmUtMjZhOS00YTQ3LTg2ZjItYWUwZmRjZjZhNmU52AIB4AIB&aid=304142&ucfs=1&arphpl=1&dest_id=13245833&dest_type=hotel&group_adults=2&req_adults=2&no_rooms=1&group_children=0&req_children=0&hpos=1&hapos=1&sr_order=popularity&srpvid=11866f0bec8c0218&srepoch=1774626461&from=searchresults"
+  },
+  {
+    "nombre": "Buena Vista",
+    "tipo": "Hotel",
+    "descripcion": "2 Habitaciones",
+    "precio": 758,
+    "ubicacion": {
+      "latitud": 35.910056,
+      "longitud": 14.502778
+    },
+    "url": "https://www.booking.com/hotel/mt/buena-vista-suites.es.html?aid=304142&label=gen173nr-10CAEoggI46AdIM1gEaEaIAQGYATO4ARfIAQzYAQPoAQH4AQGIAgGoAgG4ApzMms4GwAIB0gIkYzlkZGUwMmUtMjZhOS00YTQ3LTg2ZjItYWUwZmRjZjZhNmU52AIB4AIB&sid=48fc6532d3e41c3e0e4b7c6a84911c99&dest_id=14836934&dest_type=hotel&dist=0&group_adults=2&group_children=0&hapos=1&hpos=1&no_rooms=1&req_adults=2&req_children=0&room1=A%2CA&sb_price_type=total&sr_order=popularity&srepoch=1774626503&srpvid=551f6f22d12022e3&type=total&ucfs=1&"
+  },
+  {
+    "nombre": "MH Silema",
+    "tipo": "Hotel",
+    "descripcion": "2 Habitaciones",
+    "precio": 706,
+    "ubicacion": {
+      "latitud": 35.910417,
+      "longitud": 14.505083
+    },
+    "url": "https://www.booking.com/hotel/in/golden-leaf-resort-dhule.es.html?aid=304142&label=gen173nr-10CAEoggI46AdIM1gEaEaIAQGYATO4ARfIAQzYAQPoAQH4AQGIAgGoAgG4ApzMms4GwAIB0gIkYzlkZGUwMmUtMjZhOS00YTQ3LTg2ZjItYWUwZmRjZjZhNmU52AIB4AIB&sid=48fc6532d3e41c3e0e4b7c6a84911c99&dist=0&group_adults=2&group_children=0&hapos=1&hpos=1&no_rooms=1&req_adults=2&req_children=0&room1=A%2CA&sb_price_type=total&sr_order=distance_from_search&srepoch=1774626533&srpvid=d4b26f30eac00333&type=total&ucfs=1&"
+  },
+  {
+    "nombre": "Lady Todd",
+    "tipo": "Hotel",
+    "descripcion": "2 Habitaciones",
+    "precio": 799,
+    "ubicacion": {
+      "latitud": 35.909389,
+      "longitud": 14.501278
+    },
+    "url": "https://www.booking.com/hotel/mt/lady-todd.es.html?aid=304142&label=gen173nr-10CAEoggI46AdIM1gEaEaIAQGYATO4ARfIAQzYAQPoAQH4AQGIAgGoAgG4ApzMms4GwAIB0gIkYzlkZGUwMmUtMjZhOS00YTQ3LTg2ZjItYWUwZmRjZjZhNmU52AIB4AIB&sid=48fc6532d3e41c3e0e4b7c6a84911c99&dest_id=6821772&dest_type=hotel&dist=0&group_adults=2&group_children=0&hapos=1&hpos=1&no_rooms=1&req_adults=2&req_children=0&room1=A%2CA&sb_price_type=total&sr_order=popularity&srepoch=1774626572&srpvid=4e6f6f4510fa0301&type=total&ucfs=1&"
+  },
+  {
+    "nombre": "Rabbit Hole",
+    "tipo": "Apartamento",
+    "descripcion": "Sofá",
+    "precio": 468,
+    "ubicacion": {
+      "latitud": 35.911917,
+      "longitud": 14.491056
+    },
+    "url": "https://www.booking.com/hotel/mt/rabbit-hole.es.html?aid=304142&label=gen173nr-10CAEoggI46AdIM1gEaEaIAQGYATO4ARfIAQzYAQPoAQH4AQGIAgGoAgG4ApzMms4GwAIB0gIkYzlkZGUwMmUtMjZhOS00YTQ3LTg2ZjItYWUwZmRjZjZhNmU52AIB4AIB&sid=48fc6532d3e41c3e0e4b7c6a84911c99&dest_id=13485366&dest_type=hotel&dist=0&group_adults=2&group_children=0&hapos=1&hpos=1&no_rooms=1&req_adults=2&req_children=0&room1=A%2CA&sb_price_type=total&sr_order=popularity&srepoch=1774626599&srpvid=00bd6f5110a7002f&type=total&ucfs=1&"
+  },
+  {
+    "nombre": "St Julian Oneb",
+    "tipo": "Apartamento",
+    "descripcion": "Sofá",
+    "precio": 472,
+    "ubicacion": {
+      "latitud": 35.921556,
+      "longitud": 14.492361
+    }
+  },
+  {
+    "nombre": "Elise Apartaments",
+    "tipo": "Apartamento",
+    "descripcion": "Sofá",
+    "precio": 471,
+    "ubicacion": {
+      "latitud": 35.905250,
+      "longitud": 14.492472
+    },
+    "url": "https://www.booking.com/hotel/mt/the-elise-apartments.es.html?aid=304142&label=gen173nr-10CAEoggI46AdIM1gEaEaIAQGYATO4ARfIAQzYAQPoAQH4AQGIAgGoAgG4ApzMms4GwAIB0gIkYzlkZGUwMmUtMjZhOS00YTQ3LTg2ZjItYWUwZmRjZjZhNmU52AIB4AIB&sid=48fc6532d3e41c3e0e4b7c6a84911c99&dest_id=11213927&dest_type=hotel&dist=0&group_adults=2&group_children=0&hapos=1&hpos=1&no_rooms=1&req_adults=2&req_children=0&room1=A%2CA&sb_price_type=total&sr_order=popularity&srepoch=1774626846&srpvid=e9826fcdec0f00eb&type=total&ucfs=1&"
+  }
+]
