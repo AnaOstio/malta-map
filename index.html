@@ -3,261 +3,654 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Alojamientos en Malta</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Alojamientos en Malta | Guía interactiva</title>
 
+  <!-- Leaflet CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+  <!-- Google Fonts -->
   <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap"
     rel="stylesheet" />
 
   <style>
-    :root {
-      --hotel-color: #c0392b;
-      --hotel-light: #f9eded;
-      --hotel-border: #e8b4b0;
-      --apart-color: #1a6b9a;
-      --apart-light: #eaf3fa;
-      --apart-border: #a3c9e2;
-      --bg: #f5f3ee;
-      --surface: #ffffff;
-      --text: #1c1a17;
-      --text-muted: #7a7469;
-      --shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
-      --radius: 14px;
-    }
-
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
     body {
       font-family: 'DM Sans', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-    }
-
-    header {
-      padding: 28px 36px 20px;
-      background: var(--surface);
-      border-bottom: 1px solid #e8e4dc;
+      background: #f5f3ee;
+      color: #1c1a17;
+      overflow: hidden;
+      height: 100vh;
       display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
+      flex-direction: column;
     }
 
-    header h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.7rem;
-    }
-
-    header h1 span {
-      color: var(--apart-color);
-    }
-
-    .filters {
-      padding: 14px 36px;
-      background: var(--surface);
+    /* HEADER */
+    .app-header {
+      background: white;
       border-bottom: 1px solid #e8e4dc;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 20;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+    }
+
+    .app-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    .app-header h1 span {
+      color: #1a6b9a;
+    }
+
+    /* Botón hamburguesa */
+    .hamburger {
+      display: none;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      width: 44px;
+      height: 44px;
+      border-radius: 30px;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+
+    .hamburger:hover {
+      background: #f0eeea;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #1c1a17;
+      margin: 5px 0;
+      border-radius: 2px;
+      transition: 0.2s;
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
+
+    /* Barra de filtros (escritorio) */
+    .filters-bar {
+      background: white;
+      border-bottom: 1px solid #e8e4dc;
+      padding: 12px 20px;
       display: flex;
       gap: 10px;
       flex-wrap: wrap;
+      z-index: 10;
     }
 
     .filter-btn {
-      padding: 7px 18px;
-      border-radius: 30px;
+      padding: 6px 18px;
+      border-radius: 40px;
       border: 1.5px solid #ddd8ce;
+      background: white;
+      font-size: 0.85rem;
+      font-weight: 500;
       cursor: pointer;
+      transition: all 0.2s;
+      color: #2c2a26;
     }
 
     .filter-btn.active {
-      background: #000;
-      color: #fff;
+      background: #1c1a17;
+      color: white;
+      border-color: #1c1a17;
     }
 
-    .main {
+    .filter-btn:hover {
+      background: #f0eeea;
+    }
+
+    /* LAYOUT PRINCIPAL */
+    .main-layout {
       display: grid;
       grid-template-columns: 380px 1fr;
-      height: calc(100vh - 120px);
+      flex: 1;
+      overflow: hidden;
+      position: relative;
     }
 
+    /* SIDEBAR */
     .sidebar {
+      background: #fefcf8;
       overflow-y: auto;
-      padding: 20px;
+      padding: 20px 16px;
+      border-right: 1px solid #e8e4dc;
+      transition: transform 0.25s ease-in-out;
+      z-index: 12;
     }
 
+    /* Tarjetas */
     .card {
-      background: #fff;
-      padding: 15px;
-      margin-bottom: 10px;
-      border-radius: 10px;
+      background: white;
+      border-radius: 18px;
+      padding: 16px;
+      margin-bottom: 14px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.05);
       cursor: pointer;
+      transition: all 0.2s ease;
+      border: 1px solid #ece8e2;
     }
 
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.05);
+      border-color: #d6cfc4;
+    }
+
+    .card.active {
+      border-left: 5px solid #1a6b9a;
+      background: #f6fbfe;
+      border-left-width: 6px;
+    }
+
+    .card-name {
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .card-type-badge {
+      font-size: 0.7rem;
+      background: #f0ede7;
+      padding: 2px 10px;
+      border-radius: 20px;
+      font-weight: normal;
+    }
+
+    .card-desc {
+      font-size: 0.85rem;
+      color: #5a564e;
+      margin: 8px 0;
+      line-height: 1.35;
+    }
+
+    .card-price {
+      font-weight: 600;
+      color: #1a6b9a;
+      font-size: 1rem;
+      margin-top: 6px;
+    }
+
+    .card-link {
+      display: inline-block;
+      margin-top: 8px;
+      font-size: 0.75rem;
+      color: #c0392b;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .card-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Mapa */
     #map {
       height: 100%;
+      width: 100%;
+      background: #cddbe9;
+      z-index: 1;
+    }
+
+    /* --- RESPONSIVE: menú hamburguesa --- */
+    @media (max-width: 780px) {
+      .app-header {
+        padding: 12px 16px;
+      }
+
+      .app-header h1 {
+        font-size: 1.3rem;
+      }
+
+      .hamburger {
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* Ocultar la barra de filtros original en móvil */
+      .filters-bar {
+        display: none;
+      }
+
+      .main-layout {
+        grid-template-columns: 1fr;
+      }
+
+      /* Sidebar se convierte en panel deslizable */
+      .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 85%;
+        max-width: 340px;
+        height: 100vh;
+        background: #fffcf7;
+        transform: translateX(-100%);
+        box-shadow: 4px 0 20px rgba(0, 0, 0, 0.15);
+        border-right: none;
+        z-index: 1000;
+        padding-top: 20px;
+      }
+
+      .sidebar.open {
+        transform: translateX(0);
+      }
+
+      /* Overlay oscuro */
+      .menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(2px);
+        z-index: 999;
+        display: none;
+      }
+
+      .menu-overlay.active {
+        display: block;
+      }
+
+      /* Filtros dentro del sidebar móvil */
+      .mobile-filters {
+        margin: 8px 0 20px 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid #e2dcd2;
+      }
+
+      .mobile-filters .filter-btn {
+        font-size: 0.75rem;
+        padding: 5px 14px;
+      }
+
+      .card {
+        margin-bottom: 12px;
+      }
+    }
+
+    @media (min-width: 781px) {
+      .menu-overlay {
+        display: none !important;
+      }
+
+      .mobile-filters {
+        display: none;
+      }
+    }
+
+    .sidebar::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    .sidebar::-webkit-scrollbar-track {
+      background: #e9e5de;
+    }
+
+    .sidebar::-webkit-scrollbar-thumb {
+      background: #bbb2a5;
+      border-radius: 8px;
     }
   </style>
 </head>
 
 <body>
 
-  <header>
+  <header class="app-header">
     <h1>Alojamientos en <span>Malta</span></h1>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Menú de alojamientos">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </header>
 
-  <div class="filters">
+  <!-- Filtros para escritorio -->
+  <div class="filters-bar" id="desktopFilters">
     <button class="filter-btn active" data-filter="all">Todos</button>
-    <button class="filter-btn" data-filter="Hotel">Hoteles</button>
-    <button class="filter-btn" data-filter="Apartamento">Apartamentos</button>
+    <button class="filter-btn" data-filter="Hotel">Hoteles 🏨</button>
+    <button class="filter-btn" data-filter="Apartamento">Apartamentos 🏠</button>
     <button class="filter-btn" data-filter="price-asc">💰 Menor precio</button>
     <button class="filter-btn" data-filter="price-desc">💎 Mayor precio</button>
   </div>
 
-  <div class="main">
-    <div class="sidebar" id="sidebar"></div>
+  <div class="main-layout">
+    <div class="sidebar" id="sidebar">
+      <div id="mobileFiltersContainer"></div>
+      <div id="cardsContainer"></div>
+    </div>
+    <div id="menuOverlay" class="menu-overlay"></div>
     <div id="map"></div>
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 
   <script>
-    let data = [];
-    let filteredData = [];
-
-    const map = L.map('map').setView([35.912, 14.498], 14);
-
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '© OpenStreetMap'
-    }).addTo(map);
-
+    // Variables globales
+    let allData = [];
+    let currentData = [];
     let markers = [];
     let cards = [];
     let activeIndex = null;
+    let map;
 
+    // Inicializar mapa
+    function initMap() {
+      map = L.map('map').setView([35.912, 14.498], 14);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors'
+      }).addTo(map);
+    }
+
+    // Crear icono según tipo
     function createIcon(tipo) {
       const color = tipo === 'Hotel' ? '#c0392b' : '#1a6b9a';
       return L.divIcon({
-        html: `<div style="background:${color};width:30px;height:30px;border-radius:50%"></div>`
+        html: `<div style="background:${color}; width:32px; height:32px; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 2px 6px rgba(0,0,0,0.3); border:2px solid white;">
+              <span style="color:white; font-size:14px; font-weight:bold;">${tipo === 'Hotel' ? 'H' : 'A'}</span>
+            </div>`,
+        iconSize: [32, 32],
+        popupAnchor: [0, -16]
       });
     }
 
-    function buildUI(list) {
-      const sidebar = document.getElementById('sidebar');
-      sidebar.innerHTML = '';
+    // Construir UI (lista + marcadores)
+    function buildUI(dataList) {
+      const cardsContainer = document.getElementById('cardsContainer');
+      if (!cardsContainer) return;
 
+      cardsContainer.innerHTML = '';
+
+      // Limpiar marcadores anteriores
       markers.forEach(m => map.removeLayer(m));
       markers = [];
       cards = [];
+      activeIndex = null;
 
-      list.forEach((item, idx) => {
+      dataList.forEach((item, idx) => {
+        // Crear tarjeta
         const card = document.createElement('div');
         card.className = 'card';
-        let url = item.url ? item.url : null;
 
-        // normalizar URL
+        let url = item.url;
         if (url && !url.startsWith('http')) {
           url = 'https://' + url;
         }
+
+        const tipoDisplay = item.tipo === 'Hotel' ? '🏨 Hotel' : '🏠 Apartamento';
 
         card.innerHTML = `
-          <div style="font-weight:600">${item.nombre}</div>
-          <div style="font-size:0.85rem;color:#666">${item.descripcion}</div>
-          <div style="margin-top:5px">${item.precio}€</div>
+        <div class="card-name">
+          ${escapeHtml(item.nombre)}
+          <span class="card-type-badge">${tipoDisplay}</span>
+        </div>
+        <div class="card-desc">${escapeHtml(item.descripcion || 'Sin descripción')}</div>
+        <div class="card-price">${item.precio}€ / noche</div>
+        ${url ? `<a href="${url}" target="_blank" class="card-link" onclick="event.stopPropagation()">🔗 Ver alojamiento ↗</a>` : '<span style="font-size:0.7rem;color:#aaa;">Sin enlace disponible</span>'}
+      `;
 
-          ${url
-            ? `<a href="${url}" target="_blank" style="font-size:0.8rem;color:#1a6b9a;text-decoration:none;">
-                  Ver alojamiento ↗
-                </a>`
-            : `<span style="font-size:0.75rem;color:#aaa;">Sin enlace</span>`
+        card.onclick = (e) => {
+          if (e.target.tagName !== 'A') {
+            selectItem(idx);
           }
-        `;
-        card.onclick = () => selectItem(idx);
-        sidebar.appendChild(card);
+        };
+        cardsContainer.appendChild(card);
         cards.push(card);
 
-        const marker = L.marker(
-          [item.ubicacion.latitud, item.ubicacion.longitud],
-          { icon: createIcon(item.tipo) }
-        ).addTo(map);
+        // Crear marcador
+        const marker = L.marker([item.ubicacion.latitud, item.ubicacion.longitud], {
+          icon: createIcon(item.tipo)
+        }).addTo(map);
 
-        if (url && !url.startsWith('http')) {
-          url = 'https://' + url;
-        }
+        let popupUrl = url;
+        if (popupUrl && !popupUrl.startsWith('http')) popupUrl = 'https://' + popupUrl;
 
         marker.bindPopup(`
-          <b>${item.nombre}</b><br>
-          ${item.descripcion}<br>
-          ${item.precio}€<br>
-          ${url
-            ? `<a href="${url}" target="_blank">Ver alojamiento</a>`
-            : `<span style="color:#aaa">Sin enlace</span>`
-          }
-        `);
-        marker.on('click', () => selectItem(idx));
+        <b style="font-size:1rem;">${escapeHtml(item.nombre)}</b><br>
+        <span style="color:#666;">${escapeHtml(item.descripcion || '')}</span><br>
+        <strong>${item.precio}€</strong> noche<br>
+        ${popupUrl ? `<a href="${popupUrl}" target="_blank" style="color:#1a6b9a;">Ver alojamiento →</a>` : '<span style="color:#aaa;">Sin enlace</span>'}
+      `);
 
+        marker.on('click', () => selectItem(idx));
         markers.push(marker);
       });
     }
 
     function selectItem(idx) {
-      if (activeIndex !== null) {
+      if (activeIndex !== null && cards[activeIndex]) {
         cards[activeIndex].classList.remove('active');
       }
       activeIndex = idx;
-      cards[idx].classList.add('active');
+      if (cards[idx]) {
+        cards[idx].classList.add('active');
+        const latlng = markers[idx].getLatLng();
+        map.flyTo(latlng, 15);
+        markers[idx].openPopup();
 
-      const latlng = markers[idx].getLatLng();
-      map.flyTo(latlng, 15);
-      markers[idx].openPopup();
-    }
-
-    // FETCH JSON
-    async function loadData() {
-      try {
-        const res = await fetch('hotels.json');
-
-        if (!res.ok) throw new Error('Error cargando JSON');
-
-        data = await res.json();
-        filteredData = [...data];
-
-        buildUI(data);
-      } catch (err) {
-        console.error(err);
+        // En móvil, después de seleccionar, cerramos el sidebar automáticamente
+        if (window.innerWidth <= 780) {
+          closeSidebar();
+        }
       }
     }
 
-    // FILTERS
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
+    // Aplicar filtros
+    function applyFilter(filterType) {
+      let result = [...allData];
 
-        const f = btn.dataset.filter;
+      if (filterType === 'Hotel') {
+        result = allData.filter(d => d.tipo === 'Hotel');
+      } else if (filterType === 'Apartamento') {
+        result = allData.filter(d => d.tipo === 'Apartamento');
+      } else if (filterType === 'price-asc') {
+        result = [...allData].sort((a, b) => a.precio - b.precio);
+      } else if (filterType === 'price-desc') {
+        result = [...allData].sort((a, b) => b.precio - a.precio);
+      } else {
+        result = [...allData];
+      }
 
-        let result = [...data];
+      currentData = result;
+      buildUI(currentData);
+    }
 
-        if (f === 'Hotel' || f === 'Apartamento') {
-          result = data.filter(d => d.tipo === f);
-        } else if (f === 'price-asc') {
-          result.sort((a, b) => a.precio - b.precio);
-        } else if (f === 'price-desc') {
-          result.sort((a, b) => b.precio - a.precio);
-        }
-
-        filteredData = result;
-        buildUI(filteredData);
+    // Configurar eventos de filtros (tanto escritorio como móvil)
+    function setupFilters() {
+      const allFilterButtons = document.querySelectorAll('.filter-btn');
+      allFilterButtons.forEach(btn => {
+        btn.removeEventListener('click', handleFilterClick);
+        btn.addEventListener('click', handleFilterClick);
       });
-    });
+    }
 
-    // INIT
-    loadData();
+    function handleFilterClick(e) {
+      const btn = e.currentTarget;
+      const filter = btn.dataset.filter;
+
+      // Actualizar clase activa en todos los botones (tanto escritorio como móvil)
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      applyFilter(filter);
+    }
+
+    // Crear filtros móviles dentro del sidebar
+    function createMobileFilters() {
+      const container = document.getElementById('mobileFiltersContainer');
+      if (!container) return;
+
+      container.innerHTML = `
+      <div class="mobile-filters">
+        <button class="filter-btn active" data-filter="all">Todos</button>
+        <button class="filter-btn" data-filter="Hotel">🏨 Hoteles</button>
+        <button class="filter-btn" data-filter="Apartamento">🏠 Apartamentos</button>
+        <button class="filter-btn" data-filter="price-asc">💰 Menor precio</button>
+        <button class="filter-btn" data-filter="price-desc">💎 Mayor precio</button>
+      </div>
+    `;
+
+      // Re-asignar eventos a los nuevos botones
+      const mobileBtns = container.querySelectorAll('.filter-btn');
+      mobileBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const filter = btn.dataset.filter;
+          // Sincronizar estado activo en todos los filtros (escritorio y móvil)
+          document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          // También marcar el botón equivalente en escritorio si existe
+          const desktopBtn = document.querySelector(`.filters-bar .filter-btn[data-filter="${filter}"]`);
+          if (desktopBtn) desktopBtn.classList.add('active');
+
+          applyFilter(filter);
+
+          // En móvil después de filtrar mantenemos el sidebar abierto o lo cerramos? Mejor mantener abierto para seguir viendo resultados
+          // pero opcional: si quieres cierre automático, descomenta la línea de abajo
+          // if (window.innerWidth <= 780) closeSidebar();
+        });
+      });
+    }
+
+    // Funciones para el menú hamburguesa
+    function openSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      const overlay = document.getElementById('menuOverlay');
+      const hamburger = document.getElementById('hamburgerBtn');
+      sidebar.classList.add('open');
+      overlay.classList.add('active');
+      hamburger.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      const overlay = document.getElementById('menuOverlay');
+      const hamburger = document.getElementById('hamburgerBtn');
+      sidebar.classList.remove('open');
+      overlay.classList.remove('active');
+      hamburger.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      if (sidebar.classList.contains('open')) {
+        closeSidebar();
+      } else {
+        openSidebar();
+      }
+    }
+
+    // Cargar datos desde hotels.json
+    async function loadData() {
+      try {
+        const response = await fetch('hotels.json');
+        if (!response.ok) {
+          throw new Error(`Error HTTP: ${response.status}`);
+        }
+        const jsonData = await response.json();
+        allData = jsonData;
+        currentData = [...allData];
+
+        // Inicializar mapa si no está listo
+        if (!map) initMap();
+
+        buildUI(currentData);
+        createMobileFilters();
+        setupFilters();
+
+      } catch (error) {
+        console.error('Error cargando hotels.json:', error);
+        const cardsContainer = document.getElementById('cardsContainer');
+        if (cardsContainer) {
+          cardsContainer.innerHTML = `<div style="padding: 40px; text-align: center; color: #c0392b;">
+          ❌ Error al cargar los datos: ${error.message}<br>
+          Asegúrate de que el archivo <strong>hotels.json</strong> está en la misma carpeta.
+        </div>`;
+        }
+      }
+    }
+
+    // Helper para escapar HTML
+    function escapeHtml(str) {
+      if (!str) return '';
+      return str.replace(/[&<>]/g, function (m) {
+        if (m === '&') return '&amp;';
+        if (m === '<') return '&lt;';
+        if (m === '>') return '&gt;';
+        return m;
+      }).replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, function (c) {
+        return c;
+      });
+    }
+
+    // Event listeners para el menú
+    function initMenuEvents() {
+      const hamburger = document.getElementById('hamburgerBtn');
+      const overlay = document.getElementById('menuOverlay');
+
+      if (hamburger) {
+        hamburger.addEventListener('click', toggleSidebar);
+      }
+      if (overlay) {
+        overlay.addEventListener('click', closeSidebar);
+      }
+
+      // Al cambiar el tamaño de la ventana, si es escritorio aseguramos que sidebar está visible y cerramos overlay
+      window.addEventListener('resize', function () {
+        if (window.innerWidth > 780) {
+          const sidebar = document.getElementById('sidebar');
+          const overlay = document.getElementById('menuOverlay');
+          const hamburger = document.getElementById('hamburgerBtn');
+          if (sidebar) sidebar.classList.remove('open');
+          if (overlay) overlay.classList.remove('active');
+          if (hamburger) hamburger.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      });
+    }
+
+    // Iniciar aplicación
+    function init() {
+      initMap();
+      loadData();
+      initMenuEvents();
+    }
+
+    init();
   </script>
-
 </body>
 
 </html>
