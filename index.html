@@ -417,7 +417,7 @@
           <span class="card-type-badge">${tipoDisplay}</span>
         </div>
         <div class="card-desc">${escapeHtml(item.descripcion || 'Sin descripción')}</div>
-        <div class="card-price">${item.precio}€ / noche</div>
+        <div class="card-price">${item.precio}€</div>
         ${url ? `<a href="${url}" target="_blank" class="card-link" onclick="event.stopPropagation()">🔗 Ver alojamiento ↗</a>` : '<span style="font-size:0.7rem;color:#aaa;">Sin enlace disponible</span>'}
       `;
 
@@ -440,7 +440,7 @@
         marker.bindPopup(`
         <b style="font-size:1rem;">${escapeHtml(item.nombre)}</b><br>
         <span style="color:#666;">${escapeHtml(item.descripcion || '')}</span><br>
-        <strong>${item.precio}€</strong> noche<br>
+        <strong>${item.precio}€</strong><br>
         ${popupUrl ? `<a href="${popupUrl}" target="_blank" style="color:#1a6b9a;">Ver alojamiento →</a>` : '<span style="color:#aaa;">Sin enlace</span>'}
       `);
 
