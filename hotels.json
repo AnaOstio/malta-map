@@ -1,16 +1,5 @@
 [
   {
-    "nombre": "Plaza Regency",
-    "tipo": "Hotel",
-    "descripcion": "4 camas",
-    "precio": 767,
-    "ubicacion": {
-      "latitud": 35.914611,
-      "longitud": 14.497306
-    },
-    "url": "https://booking.com/hotel/mt/plaza-plaza-regency-hotels.es.html?label=gen173nr-10CAEoggI46AdIM1gEaEaIAQGYATO4ARfIAQzYAQPoAQH4AQGIAgGoAgG4ApzMms4GwAIB0gIkYzlkZGUwMmUtMjZhOS00YTQ3LTg2ZjItYWUwZmRjZjZhNmU52AIB4AIB&aid=304142&ucfs=1&arphpl=1&dest_id=17548&dest_type=hotel&group_adults=2&req_adults=2&no_rooms=1&group_children=0&req_children=0&hpos=1&hapos=1&sr_order=popularity&srpvid=53966ed560130261&srepoch=1774626353&from=searchresults"
-  },
-  {
     "nombre": "Travi Boutique",
     "tipo": "Hotel",
     "descripcion": "2 Habitaciones",
@@ -24,35 +13,13 @@
   {
     "nombre": "Buena Vista",
     "tipo": "Hotel",
-    "descripcion": "2 Habitaciones",
+    "descripcion": "Sofa",
     "precio": 758,
     "ubicacion": {
       "latitud": 35.910056,
       "longitud": 14.502778
     },
     "url": "https://www.booking.com/hotel/mt/buena-vista-suites.es.html?aid=304142&label=gen173nr-10CAEoggI46AdIM1gEaEaIAQGYATO4ARfIAQzYAQPoAQH4AQGIAgGoAgG4ApzMms4GwAIB0gIkYzlkZGUwMmUtMjZhOS00YTQ3LTg2ZjItYWUwZmRjZjZhNmU52AIB4AIB&sid=48fc6532d3e41c3e0e4b7c6a84911c99&dest_id=14836934&dest_type=hotel&dist=0&group_adults=2&group_children=0&hapos=1&hpos=1&no_rooms=1&req_adults=2&req_children=0&room1=A%2CA&sb_price_type=total&sr_order=popularity&srepoch=1774626503&srpvid=551f6f22d12022e3&type=total&ucfs=1&"
-  },
-  {
-    "nombre": "MH Silema",
-    "tipo": "Hotel",
-    "descripcion": "2 Habitaciones",
-    "precio": 706,
-    "ubicacion": {
-      "latitud": 35.910417,
-      "longitud": 14.505083
-    },
-    "url": "https://www.booking.com/hotel/in/golden-leaf-resort-dhule.es.html?aid=304142&label=gen173nr-10CAEoggI46AdIM1gEaEaIAQGYATO4ARfIAQzYAQPoAQH4AQGIAgGoAgG4ApzMms4GwAIB0gIkYzlkZGUwMmUtMjZhOS00YTQ3LTg2ZjItYWUwZmRjZjZhNmU52AIB4AIB&sid=48fc6532d3e41c3e0e4b7c6a84911c99&dist=0&group_adults=2&group_children=0&hapos=1&hpos=1&no_rooms=1&req_adults=2&req_children=0&room1=A%2CA&sb_price_type=total&sr_order=distance_from_search&srepoch=1774626533&srpvid=d4b26f30eac00333&type=total&ucfs=1&"
-  },
-  {
-    "nombre": "Lady Todd",
-    "tipo": "Hotel",
-    "descripcion": "2 Habitaciones",
-    "precio": 799,
-    "ubicacion": {
-      "latitud": 35.909389,
-      "longitud": 14.501278
-    },
-    "url": "https://www.booking.com/hotel/mt/lady-todd.es.html?aid=304142&label=gen173nr-10CAEoggI46AdIM1gEaEaIAQGYATO4ARfIAQzYAQPoAQH4AQGIAgGoAgG4ApzMms4GwAIB0gIkYzlkZGUwMmUtMjZhOS00YTQ3LTg2ZjItYWUwZmRjZjZhNmU52AIB4AIB&sid=48fc6532d3e41c3e0e4b7c6a84911c99&dest_id=6821772&dest_type=hotel&dist=0&group_adults=2&group_children=0&hapos=1&hpos=1&no_rooms=1&req_adults=2&req_children=0&room1=A%2CA&sb_price_type=total&sr_order=popularity&srepoch=1774626572&srpvid=4e6f6f4510fa0301&type=total&ucfs=1&"
   },
   {
     "nombre": "Rabbit Hole",
@@ -66,38 +33,6 @@
     "url": "https://www.booking.com/hotel/mt/rabbit-hole.es.html?aid=304142&label=gen173nr-10CAEoggI46AdIM1gEaEaIAQGYATO4ARfIAQzYAQPoAQH4AQGIAgGoAgG4ApzMms4GwAIB0gIkYzlkZGUwMmUtMjZhOS00YTQ3LTg2ZjItYWUwZmRjZjZhNmU52AIB4AIB&sid=48fc6532d3e41c3e0e4b7c6a84911c99&dest_id=13485366&dest_type=hotel&dist=0&group_adults=2&group_children=0&hapos=1&hpos=1&no_rooms=1&req_adults=2&req_children=0&room1=A%2CA&sb_price_type=total&sr_order=popularity&srepoch=1774626599&srpvid=00bd6f5110a7002f&type=total&ucfs=1&"
   },
   {
-    "nombre": "St Julian Oneb",
-    "tipo": "Apartamento",
-    "descripcion": "Sofá",
-    "precio": 472,
-    "ubicacion": {
-      "latitud": 35.921556,
-      "longitud": 14.492361
-    }
-  },
-  {
-    "nombre": "Elise Apartaments",
-    "tipo": "Apartamento",
-    "descripcion": "Sofá",
-    "precio": 471,
-    "ubicacion": {
-      "latitud": 35.905250,
-      "longitud": 14.492472
-    },
-    "url": "https://www.booking.com/hotel/mt/the-elise-apartments.es.html?aid=304142&label=gen173nr-10CAEoggI46AdIM1gEaEaIAQGYATO4ARfIAQzYAQPoAQH4AQGIAgGoAgG4ApzMms4GwAIB0gIkYzlkZGUwMmUtMjZhOS00YTQ3LTg2ZjItYWUwZmRjZjZhNmU52AIB4AIB&sid=48fc6532d3e41c3e0e4b7c6a84911c99&dest_id=11213927&dest_type=hotel&dist=0&group_adults=2&group_children=0&hapos=1&hpos=1&no_rooms=1&req_adults=2&req_children=0&room1=A%2CA&sb_price_type=total&sr_order=popularity&srepoch=1774626846&srpvid=e9826fcdec0f00eb&type=total&ucfs=1&"
-  },
-  {
-    "nombre": "1bed balluta",
-    "tipo": "Apartamento",
-    "descripcion": "Sofá",
-    "precio": 547,
-    "ubicacion": {
-      "latitud": 35.9115,
-      "longitud": 14.4905
-    },
-    "url": "https://www.booking.com/hotel/mt/1bed-apt-close-to-balluta-bay.es.html?label=gen173nr-10CAEoggI46AdIM1gEaEaIAQGYATO4ARfIAQzYAQPoAQH4AQGIAgGoAgG4ApzMms4GwAIB0gIkYzlkZGUwMmUtMjZhOS00YTQ3LTg2ZjItYWUwZmRjZjZhNmU52AIB4AIB&aid=304142&ucfs=1&arphpl=1&dest_id=14186782&dest_type=hotel&group_adults=2&req_adults=2&no_rooms=1&group_children=0&req_children=0&hpos=1&hapos=1&sr_order=popularity&srpvid=190c6fdc58b70105&srepoch=1774626875&from=searchresults"
-  },
-  {
     "nombre": "silema Boutique Aparts",
     "tipo": "Apartamento",
     "descripcion": "1 Sofá",
@@ -108,37 +43,26 @@
     }
   },
   {
-    "nombre": "Marea Central",
+    "nombre": "St Julians One Bedroom Apartment",
     "tipo": "Apartamento",
-    "descripcion": "Camas",
-    "precio": 650,
+    "descripcion": "Sofá",
+    "precio": 471,
     "ubicacion": {
-      "latitud": 35.910583,
-      "longitud": 14.499167
+      "latitud": 35.920278,
+      "longitud": 14.490833
     },
-    "url": "https://booking.com/hotel/mt/marea-central-apartments.es.html?label=gen173nr-10CAEoggI46AdIM1gEaEaIAQGYATO4ARfIAQzYAQPoAQH4AQGIAgGoAgG4ApzMms4GwAIB0gIkYzlkZGUwMmUtMjZhOS00YTQ3LTg2ZjItYWUwZmRjZjZhNmU52AIB4AIB&aid=304142&ucfs=1&arphpl=1&dest_id=9978058&dest_type=hotel&group_adults=2&req_adults=2&no_rooms=1&group_children=0&req_children=0&hpos=1&hapos=1&sr_order=popularity&srpvid=7ed97138118f0019&srepoch=1774627574&from=searchresults"
+    "url": "https://www.booking.com/hotel/mt/central-promenade-one-bedroom-apartment-walk-everywhere-and-comfort.es.html?aid=898224&app_hotel_id=15798846&checkin=2026-05-26&checkout=2026-05-30&from_sn=ios&group_adults=4&group_children=0&label=hotel_details-YhLsw4%401774697291-GOWj7OE%401774697891&no_rooms=1&req_adults=4&req_children=0&room1=A%2CA%2CA%2CA%2C"
   },
   {
-    "nombre": "Stay Charles",
+    "nombre": "Bright and beautifully",
     "tipo": "Apartamento",
     "descripcion": "Camas",
-    "precio": 607,
+    "precio": 685,
     "ubicacion": {
-      "latitud": 35.912139,
-      "longitud": 14.502556
+      "latitud": 35.905833,
+      "longitud": 14.496944
     },
-    "url": "https://www.booking.com/hotel/mt/stay-charles-sliema-home-cozy-prime-spot-near-seafront.es.html"
-  },
-  {
-    "nombre": "Authentic Townhouse",
-    "tipo": "Apartamento",
-    "descripcion": "Camas",
-    "precio": 691,
-    "ubicacion": {
-      "latitud": 35.910778,
-      "longitud": 14.5045
-    },
-    "url": "https://www.booking.com/hotel/mt/authentic-townhouse-with-backyard-in-sliema-by-360-estates.es.html"
+    "url": "https://www.booking.com/hotel/mt/bright-and-beautifully-furnished-apartment-close-to-seafront-bfra1-2.es.html?aid=304142&label=gen173nr-10CAEoggI46AdIM1gEaEaIAQGYATO4ARfIAQzYAQPoAQH4AQGIAgGoAgG4AqLuns4GwAIB0gIkZGI4NGMyZDctNDE5Ny00NTdhLTgzODAtOGNiMWNhOWM4N2Vh2AIB4AIB&sid=48fc6532d3e41c3e0e4b7c6a84911c99&all_sr_blocks=835988701_349035829_4_0_0&checkin=2026-05-26&checkout=2026-05-30&dest_id=8359887&dest_type=hotel&dist=0&group_adults=4&group_children=0&hapos=1&highlighted_blocks=835988701_349035829_4_0_0&hpos=1&matching_block_id=835988701_349035829_4_0_0&no_rooms=1&req_adults=4&req_children=0&room1=A%2CA%2CA%2CA&sb_price_type=total&sr_order=popularity&sr_pri_blocks=835988701_349035829_4_0_0__78024&srepoch=1774697735&srpvid=7ee35181d5df00b2&type=total&ucfs=1&"
   },
   {
     "nombre": "Easy Living",
@@ -163,14 +87,79 @@
     "url": "https://booking.com/hotel/mt/emilios-suites.es.html?label=gen173nr-10CAEoggI46AdIM1gEaEaIAQGYATO4ARfIAQzYAQPoAQH4AQGIAgGoAgG4ApzMms4GwAIB0gIkYzlkZGUwMmUtMjZhOS00YTQ3LTg2ZjItYWUwZmRjZjZhNmU52AIB4AIB&aid=304142"
   },
   {
-    "nombre": "Azure haven",
+    "nombre": "ASTE Hotel",
+    "tipo": "Hotel",
+    "descripcion": "Piscina, Camas",
+    "precio": 714,
+    "ubicacion": {
+      "latitud": 35.923889,
+      "longitud": 14.488056
+    },
+    "url": "https://www.booking.com/hotel/mt/aste.es.html?aid=304142&label=gen173nr-10CAEoggI46AdIM1gEaEaIAQGYATO4ARfIAQzYAQPoAQH4AQGIAgGoAgG4AqLuns4GwAIB0gIkZGI4NGMyZDctNDE5Ny00NTdhLTgzODAtOGNiMWNhOWM4N2Vh2AIB4AIB&sid=48fc6532d3e41c3e0e4b7c6a84911c99&all_sr_blocks=1391845806_0_4_0_0&checkin=2026-05-26&checkout=2026-05-30&dest_id=13918458&dest_type=hotel&dist=0&group_adults=4&group_children=0&hapos=1&highlighted_blocks=1391845806_0_4_0_0&hpos=1&matching_block_id=1391845806_0_4_0_0&no_rooms=1&req_adults=4&req_children=0&room1=A%2CA%2CA%2CA&sb_price_type=total&sr_order=popularity&sr_pri_blocks=1391845806_0_4_0_0__78710&srepoch=1774696336&srpvid=95ff4ec46f1b0018&type=total&ucfs=1&"
+  },
+  {
+    "nombre": "Unique & enchanting 2bedroom",
+    "tipo": "Apartamento",
+    "descripcion": "Jacuzzi, Camas",
+    "precio": 603,
+    "ubicacion": {
+      "latitud": 35.907944,
+      "longitud": 14.498889
+    }
+  },
+  {
+    "nombre": "Cosy home in Three Cities",
+    "tipo": "Apartamento",
+    "descripcion": "Buenos anfitriones, Litera",
+    "precio": 589,
+    "ubicacion": {
+      "latitud": 35.909167,
+      "longitud": 14.497222
+    },
+    "url": "https://www.booking.com/hotel/mt/entire-floor-with-back-yard.es.html?aid=898224&app_hotel_id=14743657&checkin=2026-05-26&checkout=2026-05-30&from_sn=ios&group_adults=4&group_children=0&label=hotel_details-4OGZ5k%401774696717-hW6sb8%401774696729&no_rooms=1&req_adults=4&req_children=0&room1=A%2CA%2CA%2CA%2C"
+  },
+  {
+    "nombre": "Cosy home in Three Cities",
+    "tipo": "Apartamento",
+    "descripcion": "Camas supongo",
+    "precio": 707,
+    "ubicacion": {
+      "latitud": 35.912778,
+      "longitud": 14.505000
+    },
+    "url": "https://www.booking.com/hotel/mt/stay-steps-away-from-the-sea-in-sliema.es.html?aid=898224&app_hotel_id=12107810&checkin=2026-05-26&checkout=2026-05-30&from_sn=ios&group_adults=4&group_children=0&label=hotel_details-kMgs0dJ%401774695325-qRAWXD2%401774695335&no_rooms=1&req_adults=4&req_children=0&room1=A%2CA%2CA%2CA%2C"
+  },
+  {
+    "nombre": "Charming Sliema Townhouse with Modern Comforts",
     "tipo": "Apartamento",
     "descripcion": "Camas",
-    "precio": 465,
+    "precio": 695,
     "ubicacion": {
-      "latitud": 35.906889,
-      "longitud": 14.494806
+      "latitud": 35.913056,
+      "longitud": 14.501944
     },
-    "url": "https://booking.com/hotel/mt/bright-and-spacious-3-bedroom-gzira-apartment.es.html?aid=304142"
+    "url": "https://www.booking.com/hotel/mt/charming-sliema-3bdr-oasis-with-modern-comforts.es.html?aid=898224&app_hotel_id=14242358&checkin=2026-05-26&checkout=2026-05-30&from_sn=ios&group_adults=4&group_children=0&label=hotel_details-Ayhn6Zm%401774697203-EFO06T%401774697227&no_rooms=1&req_adults=4&req_children=0&room1=A%2CA%2CA%2CA%2C"
+  },
+  {
+    "nombre": "Stylish Typical Maltese Getaway close to the sea",
+    "tipo": "Apartamento",
+    "descripcion": "Camas, Playa Privada???",
+    "precio": 754,
+    "ubicacion": {
+      "latitud": 35.913889,
+      "longitud": 14.507222
+    },
+    "url": "https://www.booking.com/hotel/mt/stylish-typical-maltese-getaway-close-to-the-sea.es.html?aid=898224&app_hotel_id=12516413&checkin=2026-05-26&checkout=2026-05-30&from_sn=ios&group_adults=4&group_children=0&label=room_list-SM3Rtd%401774697098-GT1E8c%401774697110&no_rooms=1&req_adults=4&req_children=0&room1=A%2CA%2CA%2CA%2C"
+  },
+  {
+    "nombre": "Stylish Typical Maltese Getaway close to the sea",
+    "tipo": "Hotel",
+    "descripcion": "Camas, Piscina",
+    "precio": 767,
+    "ubicacion": {
+      "latitud": 35.918056,
+      "longitud": 14.497778
+    },
+    "url": "https://www.booking.com/hotel/mt/plaza-plaza-regency-hotels.es.html?aid=304142&label=gen173nr-10CAEoggI46AdIM1gEaEaIAQGYATO4ARfIAQzYAQPoAQH4AQGIAgGoAgG4AqLuns4GwAIB0gIkZGI4NGMyZDctNDE5Ny00NTdhLTgzODAtOGNiMWNhOWM4N2Vh2AIB4AIB&sid=48fc6532d3e41c3e0e4b7c6a84911c99&all_sr_blocks=1754819_0_4_0_0&checkin=2026-05-26&checkout=2026-05-30&dest_id=17548&dest_type=hotel&dist=0&group_adults=4&group_children=0&hapos=1&highlighted_blocks=1754819_0_4_0_0&hpos=1&matching_block_id=1754819_0_4_0_0&no_rooms=1&req_adults=4&req_children=0&room1=A%2CA%2CA%2CA&sb_price_type=total&sr_order=popularity&sr_pri_blocks=1754819_0_4_0_0__73942&srepoch=1774697597&srpvid=96f3513d751d0306&type=total&ucfs=1&"
   }
 ]
